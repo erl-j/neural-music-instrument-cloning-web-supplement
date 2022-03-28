@@ -14,17 +14,20 @@ const schemes = [
 ]
 
 
-const flutes=["9MKeGursT48_part0-00000-of-00001",
+const flutes=[
+"9MKeGursT48_part0-00000-of-00001",
 "be1jJCH32OU_part0-00000-of-00001",
 "GY6_fvCO-qM_part0-00000-of-00001",
 "eHbxLcoLWYY_part0-00000-of-00001"]
 
-const saxophones=["A8Q-O5KB7kw_part0-00000-of-00001",
+const saxophones=[
+"A8Q-O5KB7kw_part0-00000-of-00001",
 "igCT4G1M1Xo_part0-00000-of-00001",
 "ZQRZmdIda6s_part0-00000-of-00001",
 "uPFmNhqERog_part0-00000-of-00001"]
 
-const trombones=["2bYLzLsIWME_part0-00000-of-00001",
+const trombones=[
+"2bYLzLsIWME_part0-00000-of-00001",
 "_W2VM3uinZA_part0-00000-of-00001",
 "LBZ1EvU5bYY_part0-00000-of-00001",
 "wmyWpgA3IOM_part0-00000-of-00001",]
@@ -54,7 +57,7 @@ function App() {
       </tr>
 
       <tr>
-          <td>training data</td>
+          <td>training data excerpt</td>
           {durations.map(duration =>
             <td key={duration} >
               <audio controls src={process.env.PUBLIC_URL+"/audio/plot_data_final/"+"training_data"+"/d="+duration+"_training_data.wav"}></audio> 
