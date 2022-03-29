@@ -17,7 +17,7 @@ const schemes = [
 
 const flutes = [
   "9MKeGursT48_part0-00000-of-00001",
-  "be1jJCH32OU_part0-00000-of-00001",
+  "be1jJCh42OU_part0-00000-of-00001",
   "GY6_fvCO-qM_part0-00000-of-00001",
   "eHbxLcoLWYY_part0-00000-of-00001"]
 
@@ -44,74 +44,113 @@ const durations = ["4", "8", "16", "32", "64", "128", "256"]
 const demo_approaches = ["whole", "partial"]
 const demo_durations = ["4", "8", "16", "32"]
 
+const EXPERIMENTS = {
+  "4.1 - Comparing cloning approaches": ["scratch", "sax_whole", "sax_partial"],
+  "4.2 - Cloning an unseen instrument": ["scratch", "sax_whole", "sax_partial", "swc_nosax_whole", "swc_nosax_partial"],
+  "4.3 - F0 confidence vs no F0 confidence": ["scratch", "scratch_nof0"],
+  "4.4 - Comparing reverb designs": ["scratch", "scratch_free_reverb"],
+}
 
 function App() {
 
 
   return (
-    <div>
+    <div style={{ margin: 32 }}>
       <h1>Neural Music Instrument Cloning - Web Supplement</h1>
-      <div >
-        <h2>Plot data</h2>
-        <h3>Target <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/" + "unseen target.wav"} ></CustomAudioPlayer></h3>
-        <table style={{ width: "100vw" }}>
-          <thead>
-            <tr>
-              <th>approach / duration</th>
-              {durations.map(duration => <th>{duration}</th>)}
-            </tr>
+      <text>All clips longer than 32 s are cropped to 32 s</text>
 
-            <tr>
-              <td>training data excerpt</td>
-              {durations.map(duration =>
-                <td key={duration}>
-                  <CustomAudioPlayer src={process.env.PUBLIC_URL + "/audio/plot_data_final/" + "training_data" + "/d=" + duration + "_training_data.wav"} ></CustomAudioPlayer>
-                </td>)}
-            </tr>
-          </thead>
-          <tbody>
-            {schemes.map(scheme =>
-              <tr key={scheme}>
-                <td>{scheme}</td>
-                {durations.map(duration =>
-                  <td key={duration} >
-                    <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/plot_data_final/" + scheme + "/d=" + duration + "_unseen_estimate.wav"}></CustomAudioPlayer>
-                  </td>)}
-              </tr>)}
-          </tbody>
-        </table>
+      <div>
+        <h2>Experiments</h2>
+        {Object.keys(EXPERIMENTS).map((experiment_name, i) =>
+          <div >
+            <h3>{experiment_name}</h3>
+            <table style={{ width: "100%" }}>
+              <thead>
+                <tr>
+                  <th>approach / duration</th>
+                  {durations.map(duration => <th>{duration}</th>)}
+                </tr>
+
+
+                <tr>
+                  <td>training data excerpt</td>
+                  {durations.map(duration =>
+                    <td key={duration}>
+                      <CustomAudioPlayer src={process.env.PUBLIC_URL + "/audio/plot_data_final/" + "training_data" + "/d=" + duration + "_training_data.wav"} ></CustomAudioPlayer>
+                    </td>)}
+                </tr>
+                <tr>
+                  <td>Target </td>
+                  <td>
+                    <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/" + "unseen target.wav"} ></CustomAudioPlayer>
+                  </td>
+                  {[...Array(6)].map(s => <td style={{ textAlign: "center" }}>"</td>)}
+                </tr>
+              </thead>
+              <tbody>
+                {EXPERIMENTS[experiment_name].map(scheme =>
+                  <tr key={scheme}>
+                    <td>{scheme}</td>
+                    {durations.map(duration =>
+                      <td key={duration} >
+                        <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/plot_data_final/" + scheme + "/d=" + duration + "_unseen_estimate.wav"}></CustomAudioPlayer>
+                      </td>)}
+                  </tr>)}
+              </tbody>
+            </table>
+          </div>)
+        }
       </div>
-      {
-        Object.keys(instruments).map(instrument =>
-          <div key={instrument}>
-            <h3>{instrument}</h3>
-            {instruments[instrument].map(recording_name =>
-              <div>
-                <h3 key={recording_name}>{recording_name}</h3>
-                <h3>Target: <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/demos/" + instrument + "/" + recording_name + "/" + "unseen_target.wav"}></CustomAudioPlayer></h3>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>approach / duration</th>
-                      {demo_durations.map(duration => <th>{duration}</th>)}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {demo_approaches.map(scheme =>
-                      <tr key={scheme}>
-                        <td>{scheme}</td>
+
+      <div>
+        <h2>Cloning demos</h2>
+        {
+          Object.keys(instruments).map(instrument =>
+            <div key={instrument}>
+              {/* <h3>{instrument}</h3> */}
+              {instruments[instrument].map((recording_name, recording_index) =>
+                <div>
+                  <h3 key={recording_name}>{instrument + " nr " + recording_index}</h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>approach / duration</th>
+                        {demo_durations.map(duration => <th>{duration}</th>)}
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>Training data</td>
                         {demo_durations.map(duration =>
-                          <td key={duration} >
-                            <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/demos/" + instrument + "/" + recording_name + "/" + scheme + "/d=" + duration + "_unseen_estimate.wav"}></CustomAudioPlayer>
-                          </td>)}
-                      </tr>)}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
-        )
-      }
+                          <td>
+                            <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/demos/" + instrument + "/" + recording_name + "/" + "training_data" + "/d=" + duration + "_training_data.wav"} ></CustomAudioPlayer>
+                          </td>
+                        )}
+                      </tr>
+                      <tr>
+                        <td>Target </td>
+                        <td>
+                          <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/demos/" + instrument + "/" + recording_name + "/" + "unseen_target.wav"} ></CustomAudioPlayer>
+                        </td>
+                        {[...Array(3)].map(s => <td style={{ textAlign: "center" }}>"</td>)}
+                      </tr>
+                      {demo_approaches.map(scheme =>
+                        <tr key={scheme}>
+                          <td>{scheme}</td>
+                          {demo_durations.map(duration =>
+                            <td key={duration} >
+                              <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/demos/" + instrument + "/" + recording_name + "/" + scheme + "/d=" + duration + "_unseen_estimate.wav"}></CustomAudioPlayer>
+                            </td>)}
+                        </tr>)}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          )
+        }
+      </div>
 
     </div >
 
