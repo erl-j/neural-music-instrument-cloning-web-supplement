@@ -50,14 +50,14 @@ const loudness_filenames =
         , "loudness up 12 db.wav"
     ]
 
-const pitch_filenames =
+const transfer_filenames =
     [
         , "training data.wav",
-        "transposed down a fourth.wav",
-        "transposed up a fourth.wav",
+        , "transfer adjusted loudness.wav"
+        , "transfer.wav",
     ]
 
-const transfer_filenames =
+const pitch_filenames =
     [
         , "training data.wav",
         "transposed down a fourth.wav",
@@ -71,7 +71,8 @@ const applications = {
     "Timbre transfer": {
         filenames: transfer_filenames,
         description:
-            <div> We use the following saxophone recording for timbre transfer.
+            <div> We extract the control signals from the following saxophone recording and resynthesize them with our clones.
+                We also demonstrate the effect of performing an adjustment to the loudness contour in order to better match the range in the clone source.
                 <div style={{ width: 200 }}><CustomAudioPlayer src={process.env.PUBLIC_URL + "/audio/unseen target.wav"} /></div>
             </div>
 
@@ -85,7 +86,7 @@ const fn2columns = {
     "loudness up 12 db.wav": "much louder (+12db)",
     "loudness up 6 db.wav": "louder (+6db)",
     "transfer adjusted loudness.wav": "timbre transfer w/ loudness adjustment",
-    "transfer.wav": "timbre transfer",
+    "transfer.wav": "timbre transfer w/o loudness adjustment",
     "transposed down a fourth.wav": "Down a fourth",
     "transposed up a fourth.wav": "Up a fourth",
 }
@@ -108,7 +109,7 @@ function Applications() {
                     <table>
                         <thead>
                             <tr>
-                                <th>recording</th>
+                                <th>Clone source name</th>
                                 {applications[app_name].filenames.map(fn => <th key={fn}>{fn2columns[fn]}</th>)}
                             </tr>
                         </thead>
