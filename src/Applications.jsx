@@ -16,9 +16,11 @@ const saxophones = [
     "ZQRZmdIda6s_part0-00000-of-00001",
     "uPFmNhqERog_part0-00000-of-00001"]
 
+
+// _W2VM3uinZA_part0-00000-of-00001
 const trombones = [
     "2bYLzLsIWME_part0-00000-of-00001",
-    "_W2VM3uinZA_part0-00000-of-00001",
+    "h",
     "LBZ1EvU5bYY_part0-00000-of-00001",
     "wmyWpgA3IOM_part0-00000-of-00001",]
 
@@ -117,7 +119,7 @@ function Applications() {
                             {Object.keys(instruments).map(instrument =>
                                 instruments[instrument].map((recording_name, recording_idx) =>
                                     <tr key={recording_name}>
-                                        <td><a href={"https://www.youtube.com/watch?v=" + recording_name.slice(0, 11)}>{instrument} {alphabet[recording_idx].toUpperCase()}</a></td>
+                                        <td><a href={"https://www.youtube.com/watch?v=" + ((recording_name == "h") ? "_W2VM3uinZA" : recording_name.slice(0, 11))}>{instrument} {alphabet[recording_idx].toUpperCase()}</a></td>
                                         {applications[app_name].filenames.map(fn =>
                                             <td key={fn}>
                                                 <CustomAudioPlayer src={process.env.PUBLIC_URL + "/audio/applications/" + instrument + "/" + recording_name + "/" + fn} />
