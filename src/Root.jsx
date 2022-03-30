@@ -10,7 +10,7 @@ import Experiments from "./Experiments";
 import Applications from "./Applications";
 
 const Root = ({ children }) => (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename="/">
 
 
 
