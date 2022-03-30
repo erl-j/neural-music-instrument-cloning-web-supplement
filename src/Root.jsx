@@ -12,13 +12,13 @@ const Root = ({ children }) => (
 
         <nav>
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="experiments">Experiments</Link></li>
-                <li><Link to="applications">Demonstration of Applications</Link></li>
+                <li><Link to={process.env.PUBLIC_URL + "/"}>Home</Link></li>
+                <li><Link to={process.env.PUBLIC_URL + "/experiments"}>Experiments</Link></li>
+                <li><Link to={process.env.PUBLIC_URL + "/applications"}>Demonstration of Applications</Link></li>
                 {/* <li><Link to="cloning_demos">Trombone, Flute, Saxophones</Link></li> */}
             </ul>
         </nav>
-        <Router>
+        <Router basepath={process.env.PUBLIC_URL} >
             <Experiments path="/experiments" />
             <Applications path="/applications" />
             {/* <CloningDemos path="/cloning_demos" /> */}
