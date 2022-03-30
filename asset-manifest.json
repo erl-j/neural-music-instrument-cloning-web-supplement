@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/neural-music-instrument-cloning-web-supplement/static/css/main.88665709.css",
-    "main.js": "/neural-music-instrument-cloning-web-supplement/static/js/main.93087729.js",
+    "main.js": "/neural-music-instrument-cloning-web-supplement/static/js/main.0967b9dc.js",
     "static/js/787.7654ccfa.chunk.js": "/neural-music-instrument-cloning-web-supplement/static/js/787.7654ccfa.chunk.js",
     "index.html": "/neural-music-instrument-cloning-web-supplement/index.html",
     "main.88665709.css.map": "/neural-music-instrument-cloning-web-supplement/static/css/main.88665709.css.map",
-    "main.93087729.js.map": "/neural-music-instrument-cloning-web-supplement/static/js/main.93087729.js.map",
+    "main.0967b9dc.js.map": "/neural-music-instrument-cloning-web-supplement/static/js/main.0967b9dc.js.map",
     "787.7654ccfa.chunk.js.map": "/neural-music-instrument-cloning-web-supplement/static/js/787.7654ccfa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.88665709.css",
-    "static/js/main.93087729.js"
+    "static/js/main.0967b9dc.js"
   ]
 }
