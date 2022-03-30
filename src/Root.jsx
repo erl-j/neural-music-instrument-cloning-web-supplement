@@ -1,29 +1,45 @@
 import React from "react";
 import { render } from "react-dom"
-import { Router, Link } from "@reach/router"
+import {
+    HashRouter,
+    Routes,
+    Route,
+    Link
+} from "react-router-dom";
 import Experiments from "./Experiments";
-import CloningDemos from "./CloningDemos";
 import Applications from "./Applications";
 
 const Root = ({ children }) => (
-    <div style={{ margin: 32 }}>
-        <h1>Neural Music Instrument Cloning - Web Supplement</h1>
-        <b>All clips longer than 32 s are cropped to 32 s</b>
+    <HashRouter basename={process.env.PUBLIC_URL}>
 
-        <nav>
+
+
+        <div style={{ margin: 32 }}>
+            <h1>Neural Music Instrument Cloning - Web Supplement</h1>
+            <b>All clips longer than 32 s are cropped to 32 s</b>
+
+
+
+
             <ul>
-                <li><Link to={process.env.PUBLIC_URL + "/"}>Home</Link></li>
-                <li><Link to={process.env.PUBLIC_URL + "/experiments"}>Experiments</Link></li>
-                <li><Link to={process.env.PUBLIC_URL + "/applications"}>Demonstration of Applications</Link></li>
-                {/* <li><Link to="cloning_demos">Trombone, Flute, Saxophones</Link></li> */}
+                <li><Link to={"/"}>Home</Link></li>
+                <li><Link to={"/experiments"}>Experiments</Link></li>
+                <li><Link to={"/applications"}>Demonstration of Applications</Link></li>
             </ul>
-        </nav>
-        <Router basepath={process.env.PUBLIC_URL} >
-            <Experiments path="/experiments" />
-            <Applications path="/applications" />
-            {/* <CloningDemos path="/cloning_demos" /> */}
-        </Router>
-    </div>
+
+            <Routes>
+                <Route path="/">
+                    <>
+                        <Route path="/experiments" element={<Experiments />} />
+                        <Route path="/applications" element={<Applications />} />
+                    </>
+                </Route>
+            </Routes>
+        </div>
+
+
+    </HashRouter>
+
 );
 
 
