@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import CustomAudioPlayer from './CustomAudioPlayer';
+import ConditioningPlot from './ConditioningPlot';
 
 
 const schemes = [
@@ -34,16 +35,9 @@ const trombones = [
   "LBZ1EvU5bYY_part0-00000-of-00001",
   "wmyWpgA3IOM_part0-00000-of-00001",]
 
-const instruments = {
-  "Flute": flutes,
-  "Saxophone": saxophones,
-  "Trombone": trombones
-}
 
 const durations = ["4", "8", "16", "32", "64", "128", "256"]
 
-const demo_approaches = ["whole", "partial"]
-const demo_durations = ["4", "8", "16", "32"]
 
 const EXPERIMENTS = {
   "4.1 - Comparing cloning approaches": ["init-whole", "sax-whole", "sax-parts"],
@@ -56,6 +50,8 @@ function Experiments() {
   return (
     <div>
       <h2>Experiments</h2>
+      Here is a plot of the control signals used for resynthesis.
+      <ConditioningPlot></ConditioningPlot>
       {Object.keys(EXPERIMENTS).map((experiment_name, i) =>
         <div >
           <h3>{experiment_name}</h3>

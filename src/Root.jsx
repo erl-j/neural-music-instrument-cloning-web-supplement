@@ -20,8 +20,6 @@ const Root = ({ children }) => (
             <b>All synthesized clips are cropped to max 31 seconds </b>
 
 
-
-
             <ul>
                 <li><Link to={"/"}>Home</Link></li>
                 <li><Link to={"/experiments"}>Experiments</Link></li>

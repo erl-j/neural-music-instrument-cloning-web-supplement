@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import CustomAudioPlayer from './CustomAudioPlayer';
-
+import ConditioningPlot from './ConditioningPlot';
 const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 const flutes = [
@@ -25,9 +25,9 @@ const trombones = [
     "wmyWpgA3IOM_part0-00000-of-00001",]
 
 const instruments = {
-    "Flute": flutes,
     "Saxophone": saxophones,
-    "Trombone": trombones
+    "Trombone": trombones,
+    "Flute": flutes,
 }
 
 const filenames = [
@@ -74,8 +74,11 @@ const applications = {
         filenames: transfer_filenames,
         description:
             <div> We extract the control signals from the following saxophone recording and resynthesize them with our clones.
-                We also demonstrate the effect of performing an adjustment to the loudness contour in order to better match the range in the clone source.
                 <div style={{ width: 200 }}><CustomAudioPlayer src={process.env.PUBLIC_URL + "/audio/unseen target.wav"} /></div>
+                Here is a plot of the control signals.
+                <ConditioningPlot></ConditioningPlot>
+                We also demonstrate the effect of performing an adjustment to the loudness contour in order to better match the range in the clone source.
+
             </div>
 
     }
