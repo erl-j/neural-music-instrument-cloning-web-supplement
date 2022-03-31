@@ -4,15 +4,16 @@ import CustomAudioPlayer from './CustomAudioPlayer';
 
 
 const schemes = [
-  "sax_partial",
-  "scratch_nof0",
+  "sax-parts",
+  "init-whole-no_f0conf",
   // "sax_pretrained_only",
-  "scratch_nof0_free_reverb",
-  "sax_whole",
-  "swc_nosax_partial",
-  "scratch",
-  "swc_nosax_whole",
-  "scratch_free_reverb"
+  "init-whole-no_f0conf-free_reverb",
+  "sax-whole",
+  "nosax-parts",
+  "init-whole",
+  "nosax-whole",
+  "init-whole-free_reverb",
+  "init-whole-fn_reverb"
 ]
 
 const flutes = [
@@ -45,10 +46,10 @@ const demo_approaches = ["whole", "partial"]
 const demo_durations = ["4", "8", "16", "32"]
 
 const EXPERIMENTS = {
-  "4.1 - Comparing cloning approaches": ["scratch", "sax_whole", "sax_partial"],
-  "4.2 - Cloning an unseen instrument": ["scratch", "sax_whole", "sax_partial", "swc_nosax_whole", "swc_nosax_partial"],
-  "4.3 - F0 confidence vs no F0 confidence": ["scratch", "scratch_nof0"],
-  "4.4 - Comparing reverb designs": ["scratch", "scratch_free_reverb"],
+  "4.1 - Comparing cloning approaches": ["init-whole", "sax-whole", "sax-parts"],
+  "4.2 - Cloning an unseen instrument": ["init-whole", "sax-whole", "sax-parts", "nosax-whole", "nosax-parts"],
+  "4.3 - F0 confidence vs no F0 confidence": ["init-whole", "init-whole-no_f0conf"],
+  "4.4 - Comparing reverb designs": ["init-whole", "init-whole-free_reverb", "init-whole-fn_reverb"],
 }
 
 function Experiments() {
