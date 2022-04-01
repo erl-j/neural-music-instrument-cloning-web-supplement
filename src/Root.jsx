@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Experiments from "./Experiments";
 import Applications from "./Applications";
+import LossPlots from "./LossPlots";
 
 const Root = ({ children }) => (
     <HashRouter basename="/">
@@ -24,6 +25,7 @@ const Root = ({ children }) => (
                 <li><Link to={"/"}>Home</Link></li>
                 <li><Link to={"/experiments"}>Experiments</Link></li>
                 <li><Link to={"/applications"}>Demonstration of Applications</Link></li>
+                <li><Link to={"/lossplots"}>Cloning Loss Plots</Link></li>
             </ul>
 
             <Routes>
@@ -31,6 +33,7 @@ const Root = ({ children }) => (
                     <>
                         <Route path="/experiments" element={<Experiments />} />
                         <Route path="/applications" element={<Applications />} />
+                        <Route path="/lossplots" element={<LossPlots />} />
                     </>
                 </Route>
             </Routes>
