@@ -68,6 +68,9 @@ function Experiments() {
                     <CustomAudioPlayer src={process.env.PUBLIC_URL + "/audio/experiments/" + "training_data" + "/d=" + duration + "_training_data.wav"} ></CustomAudioPlayer>
                   </td>)}
               </tr>
+
+            </thead>
+            <tbody>
               <tr>
                 <td>Target </td>
                 <td>
@@ -75,8 +78,6 @@ function Experiments() {
                 </td>
                 {[...Array(6)].map(s => <td style={{ textAlign: "center" }}>"</td>)}
               </tr>
-            </thead>
-            <tbody>
               {EXPERIMENTS[experiment_name].map(scheme =>
                 <tr key={scheme}>
                   <td>{scheme}</td>
@@ -85,6 +86,23 @@ function Experiments() {
                       <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/experiments/" + scheme + "/d=" + duration + "_unseen_estimate.wav"}></CustomAudioPlayer>
                     </td>)}
                 </tr>)}
+
+              {(experiment_name == "4.1 - Comparing cloning approaches") &&
+                <tr>
+                  <td>sax-nearest</td>
+                  <td>
+                    <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/" + "nearest/sax-nearest.wav"} ></CustomAudioPlayer>
+                  </td>
+                  {[...Array(6)].map(s => <td style={{ textAlign: "center" }}>"</td>)}
+                </tr>}
+              {(experiment_name == "4.2 - Cloning an unseen instrument") &&
+                <tr>
+                  <td>nosax-nearest</td>
+                  <td>
+                    <CustomAudioPlayer controls src={process.env.PUBLIC_URL + "/audio/" + "nearest/nosax-nearest.wav"} ></CustomAudioPlayer>
+                  </td>
+                  {[...Array(6)].map(s => <td style={{ textAlign: "center" }}>"</td>)}
+                </tr>}
             </tbody>
           </table>
         </div>)
