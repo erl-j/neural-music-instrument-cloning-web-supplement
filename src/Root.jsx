@@ -17,10 +17,7 @@ const Root = ({ children }) => (
 
         <div style={{ margin: 32 }}>
             <h1>Neural Music Instrument Cloning - Web Supplement</h1>
-            <b>All training clips are cropped to max 32 seconds</b>
-            <b>All synthesized clips are cropped to max 31 seconds </b>
-
-
+            All training clips are cropped to max 32 seconds. All synthesized clips are cropped to max 31 seconds.
             <ul>
                 <li><Link to={"/"}>Home</Link></li>
                 <li><Link to={"/experiments"}>Experiments</Link></li>
