@@ -38,10 +38,10 @@ const trombones = [
 const durations = ["4", "8", "16", "32", "64", "128", "256"]
 
 const EXPERIMENTS = {
-  "4.1.1 - Comparing cloning approaches": ["init-whole", "sax-whole", "sax-parts"],
-  "4.1.2 - Cloning an unseen instrument": ["init-whole", "sax-whole", "sax-parts", "nosax-whole", "nosax-parts"],
-  "4.2.1 - F0 confidence vs no F0 confidence": ["init-whole", "init-whole-no_f0conf"],
-  "4.2.2 - Comparing reverb designs": ["init-whole", "init-whole-free_reverb", "init-whole-fn_reverb"],
+  "4.2.1 - Comparing cloning approaches": ["init-whole", "sax-whole", "sax-parts"],
+  "4.2.2 - Cloning an unseen instrument": ["init-whole", "sax-whole", "sax-parts", "nosax-whole", "nosax-parts"],
+  "4.3.1 - F0 confidence vs no F0 confidence": ["init-whole", "init-whole-no_f0conf"],
+  "4.3.2 - Comparing reverb designs": ["init-whole", "init-whole-free_reverb", "init-whole-fn_reverb"],
 }
 
 function Experiments() {
@@ -85,7 +85,7 @@ function Experiments() {
                     </td>)}
                 </tr>)}
 
-              {(experiment_name == "4.1.1 - Comparing cloning approaches") &&
+              {(experiment_name == "4.2.1 - Comparing cloning approaches") &&
                 <tr>
                   <td>sax-nearest</td>
                   <td>
@@ -93,7 +93,7 @@ function Experiments() {
                   </td>
                   {[...Array(6)].map(s => <td style={{ textAlign: "center" }}>"</td>)}
                 </tr>}
-              {(experiment_name == "4.1.2 - Cloning an unseen instrument") &&
+              {(experiment_name == "4.2.2 - Cloning an unseen instrument") &&
                 <tr>
                   <td>nosax-nearest</td>
                   <td>

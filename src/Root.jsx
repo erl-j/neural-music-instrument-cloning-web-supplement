@@ -20,9 +20,10 @@ const Root = ({ children }) => (
             All training clips are cropped to max 32 seconds. All synthesized clips are cropped to max 31 seconds.
             <ul>
                 <li><Link to={"/"}>Home</Link></li>
-                <li><Link to={"/experiments"}>Experiments</Link></li>
-                <li><Link to={"/applications"}>Demonstration of Applications</Link></li>
-                <li><Link to={"/lossplots"}>Cloning Loss Plots</Link></li>
+                <li><Link to={"/experiments"}>4.2, 4.3 - Experiments</Link></li>
+                <li><Link to={"/lossplots"}>4.2, 4.3 - Cloning loss plots</Link></li>
+                <li><Link to={"/applications"}>5 - Demonstration of Applications</Link></li>
+
             </ul>
 
             <Routes>
