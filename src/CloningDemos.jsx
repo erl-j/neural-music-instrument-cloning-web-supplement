@@ -39,17 +39,8 @@ const instruments = {
     "Trombone": trombones
 }
 
-const durations = ["4", "8", "16", "32", "64", "128", "256"]
-
 const demo_approaches = ["whole", "partial"]
 const demo_durations = ["4", "8", "16", "32"]
-
-const EXPERIMENTS = {
-    "4.1 - Comparing cloning approaches": ["scratch", "sax_whole", "sax_partial"],
-    "4.2 - Cloning an unseen instrument": ["scratch", "sax_whole", "sax_partial", "swc_nosax_whole", "swc_nosax_partial"],
-    "4.3 - F0 confidence vs no F0 confidence": ["scratch", "scratch_nof0"],
-    "4.4 - Comparing reverb designs": ["scratch", "scratch_free_reverb"],
-}
 
 function CloningDemos() {
     return (
