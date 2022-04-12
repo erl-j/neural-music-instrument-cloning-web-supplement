@@ -118,7 +118,7 @@ function Applications() {
                 All training clips are cropped to max 32 seconds. All synthesized clips are cropped to max 31 seconds.
             </a>
             {Object.keys(applications).map(app_name =>
-                <div>
+                <div key={app_name}>
                     <h3>{app_name}</h3>
                     {applications[app_name].description}
                     <table>
