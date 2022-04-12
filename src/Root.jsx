@@ -9,6 +9,7 @@ import {
 import Experiments from "./Experiments";
 import Applications from "./Applications";
 import LossPlots from "./LossPlots";
+import Home from "./Home";
 
 const Root = ({ children }) => (
     <HashRouter basename="/">
@@ -17,7 +18,7 @@ const Root = ({ children }) => (
 
         <div style={{ margin: 32 }}>
             <h1>Neural Music Instrument Cloning - Web Supplement</h1>
-            All training clips are cropped to max 32 seconds. All synthesized clips are cropped to max 31 seconds.
+
             <ul>
                 <li><Link to={"/"}>Home</Link></li>
                 <li><Link to={"/experiments"}>4.2, 4.3 - Experiments</Link></li>
@@ -29,6 +30,7 @@ const Root = ({ children }) => (
             <Routes>
                 <Route path="/">
                     <>
+                        <Route path="/" element={<Home />} />
                         <Route path="/experiments" element={<Experiments />} />
                         <Route path="/applications" element={<Applications />} />
                         <Route path="/lossplots" element={<LossPlots />} />

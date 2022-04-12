@@ -48,6 +48,7 @@ function Experiments() {
   return (
     <div>
       <h2>Experiments</h2>
+      All training clips are cropped to max 32 seconds. All synthesized clips are cropped to max 31 seconds.
       Here is a plot of the control signals used for resynthesis.
       <ConditioningPlot></ConditioningPlot>
       {Object.keys(EXPERIMENTS).map((experiment_name, i) =>
