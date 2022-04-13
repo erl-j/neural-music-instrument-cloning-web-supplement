@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import CustomAudioPlayer from './CustomAudioPlayer';
 import ConditioningPlot from './ConditioningPlot';
-const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+import CustomAudioPlayer from './CustomAudioPlayer';
 
 const tst_blacklist = ['aGk1zIDQQjQ', 'GWU_50fQ6q0', 'SqWamN0ZYCo', 'z_I41tB8zSc', 'igCT4G1M1Xo', 'A8Q-O5KB7kw', 'LBZ1EvU5bYY', '2bYLzLsIWME', '_W2VM3uinZA', 'ur77HMoZPjY']
 
@@ -19,8 +18,6 @@ const saxophones = [
     "ZQRZmdIda6s",
 ]
 
-
-// 
 const trombones = [
     "2bYLzLsIWME",
     // "_W2VM3uinZA",
@@ -40,18 +37,6 @@ instruments = {
     "Trombone": instruments["Trombone"].filter(recording_name => !tst_blacklist.includes(recording_name)),
 }
 
-const filenames = [
-    , "training data.wav",
-    "loudness down 12 db.wav"
-    , "loudness down 6 db.wav"
-    , "loudness up 12 db.wav"
-    , "loudness up 6 db.wav"
-    // , "transfer adjusted f0c & loudness.wav"
-    , "transfer adjusted loudness.wav"
-    , "transfer.wav",
-    "transposed down a fourth.wav",
-    "transposed up a fourth.wav",
-]
 
 const loudness_filenames =
     [
@@ -60,6 +45,10 @@ const loudness_filenames =
         , "loudness down 6 db.wav"
         , "loudness up 6 db.wav"
         , "loudness up 12 db.wav"
+        , "loudness down 12 db naive.wav"
+        , "loudness down 6 db naive.wav"
+        , "loudness up 6 db naive.wav"
+        , "loudness up 12 db naive.wav"
     ]
 
 const transfer_filenames =
@@ -74,6 +63,8 @@ const pitch_filenames =
         , "training data.wav",
         "transposed down a fourth.wav",
         "transposed up a fourth.wav",
+        "transposed down a fourth naive.wav",
+        "transposed up a fourth naive.wav",
     ]
 
 
@@ -95,19 +86,22 @@ const applications = {
 }
 
 const fn2columns = {
-    "training data.wav": "Clone source",
+    "training data.wav": "training data",
     "loudness down 12 db.wav": "much quieter (-12db)",
     "loudness down 6 db.wav": "quieter (-6db)",
     "loudness up 12 db.wav": "much louder (+12db)",
     "loudness up 6 db.wav": "louder (+6db)",
     "transfer adjusted loudness.wav": "timbre transfer w/ loudness adjustment",
     "transfer.wav": "timbre transfer w/o loudness adjustment",
-    "transposed down a fourth.wav": "Down a fourth",
-    "transposed up a fourth.wav": "Up a fourth",
+    "transposed down a fourth.wav": "down a fourth",
+    "transposed up a fourth.wav": "up a fourth",
+    "loudness down 12 db naive.wav": "much quieter naive",
+    "loudness down 6 db naive.wav": "quieter naive",
+    "loudness up 12 db naive.wav": "much louder naive",
+    "loudness up 6 db naive.wav": "louder naive",
+    "transposed down a fourth naive.wav": "down a fourth naive",
+    "transposed up a fourth naive.wav": "up a fourth naive",
 }
-
-
-
 
 function Applications() {
     return (
