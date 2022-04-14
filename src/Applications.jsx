@@ -45,10 +45,10 @@ const loudness_filenames =
         , "loudness down 6 db.wav"
         , "loudness up 6 db.wav"
         , "loudness up 12 db.wav"
-        , "loudness down 12 db naive.wav"
-        , "loudness down 6 db naive.wav"
-        , "loudness up 6 db naive.wav"
-        , "loudness up 12 db naive.wav"
+        // , "loudness down 12 db naive.wav"
+        // , "loudness down 6 db naive.wav"
+        // , "loudness up 6 db naive.wav"
+        // , "loudness up 12 db naive.wav"
     ]
 
 const transfer_filenames =
