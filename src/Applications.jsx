@@ -61,10 +61,10 @@ const transfer_filenames =
 const pitch_filenames =
     [
         , "training data.wav",
-        "transposed down a fourth (ours).wav",
-        "transposed up a fourth (ours).wav",
-        "transposed down a fourth (naive).wav",
-        "transposed up a fourth (naive).wav",
+        "transposed down a fourth.wav",
+        "transposed up a fourth.wav",
+        "transposed down a fourth naive.wav",
+        "transposed up a fourth naive.wav",
     ]
 
 
@@ -93,14 +93,14 @@ const fn2columns = {
     "loudness up 6 db.wav": "louder (+6db)",
     "transfer adjusted loudness.wav": "timbre transfer w/ loudness adjustment",
     "transfer.wav": "timbre transfer w/o loudness adjustment",
-    "transposed down a fourth.wav": "down a fourth",
-    "transposed up a fourth.wav": "up a fourth",
+    "transposed down a fourth.wav": "down a fourth (ours)",
+    "transposed up a fourth.wav": "up a fourth (ours)",
     "loudness down 12 db naive.wav": "much quieter naive",
     "loudness down 6 db naive.wav": "quieter naive",
     "loudness up 12 db naive.wav": "much louder naive",
     "loudness up 6 db naive.wav": "louder naive",
-    "transposed down a fourth naive.wav": "down a fourth naive",
-    "transposed up a fourth naive.wav": "up a fourth naive",
+    "transposed down a fourth naive.wav": "down a fourth (naive)",
+    "transposed up a fourth naive.wav": "up a fourth (naive)",
 }
 
 function Applications() {
