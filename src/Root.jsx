@@ -10,6 +10,7 @@ import Experiments from "./Experiments";
 import Applications from "./Applications";
 import LossPlots from "./LossPlots";
 import Home from "./Home";
+import Poster from "./Poster";
 
 const Root = ({ children }) => (
     <HashRouter basename="/">
@@ -34,6 +35,7 @@ const Root = ({ children }) => (
                         <Route path="/experiments" element={<Experiments />} />
                         <Route path="/applications" element={<Applications />} />
                         <Route path="/lossplots" element={<LossPlots />} />
+                        <Route path="/poster" element={<Poster />} />
                     </>
                 </Route>
             </Routes>
