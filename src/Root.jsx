@@ -11,11 +11,10 @@ import Applications from "./Applications";
 import LossPlots from "./LossPlots";
 import Home from "./Home";
 import Poster from "./Poster";
+import Rd from "./Redirect";
 
 const Root = ({ children }) => (
     <HashRouter basename="/">
-
-
 
         <div style={{ margin: 32 }}>
             <h1>Neural Music Instrument Cloning - Web Supplement</h1>
@@ -35,7 +34,7 @@ const Root = ({ children }) => (
                         <Route path="/experiments" element={<Experiments />} />
                         <Route path="/applications" element={<Applications />} />
                         <Route path="/lossplots" element={<LossPlots />} />
-                        <Route path="/poster" element={<Poster />} />
+                        <Route path="/poster" element={<Rd></Rd>} />
                     </>
                 </Route>
             </Routes>
